@@ -4,6 +4,7 @@ import './App.css'
 
 function App() {
   const [color, setColor] = useState('var(--purple-10)')
+  const [clickColor, setClickColor] = useState('var(--neutral-purple)')
 
   useEffect(() => {
     console.log('Color changed to:', color);
@@ -15,7 +16,14 @@ function App() {
   <hr />
   <div className="content">
     <div className="container">
-      <div className="directory-title">Find A Match!</div>
+      <div
+        onClick={() => setClickColor(prev =>
+          prev === 'var(--neutral-purple)' ? 'red' : 'var(--purple-10)')}
+        style={{backgroundColor: clickColor}}
+        className="directory-title"
+      >
+        Find A Match!
+      </div>
       <div className="search-bar">
         <input
           type="text"
