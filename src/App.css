@@ -1,14 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  --northwestern-purple: #4e2a84;
+  --purple-160: #1D0235;
+  --purple-10: #E4E0EE;
+  --save-green: #3F8F2B;
+  --light-gray: #CDCDCD;
+  --neutral-purple: #5D5A88;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+  font-size: 40px;
+  font-weight: 200;
+  color: var(--northwestern-purple);
   transition: filter 300ms;
 }
 .logo:hover {
@@ -18,25 +20,99 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.directory-title {
+  font-size: 20px;
+  font-weight: 100;
+  padding: 0 40px;
+  color: var(--neutral-purple);
+  font-family: "Dela Gothic One";
+  margin-top: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 100;
+  color: var(--northwestern-purple);
+  font-family: 'Courier Prime';
 }
 
-.card {
-  padding: 2em;
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 60px;
 }
 
-.read-the-docs {
-  color: #888;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.grid-item {
+  background-color: var(--purple-10);
+  border-radius: 15px;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+  padding: 20px;
+  color: var(--northwestern-purple);
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Courier Prime";
+}
+
+.bottom-bar {
+  font-size: 10px;
+  margin-left: 30px;
+  padding: 15px;
+  font-weight: lighter;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--neutral-purple);
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.search-bar {
+  display: flex;
+  gap: 3px;
+  margin-top: 40px;
+}
+
+.search {
+  border: 1.5px solid var(--purple-10);
+  border-radius: 10px;
+  padding: 5px 18px;
+  font-family: "Courier Prime";
+  color: var(--purple-160);
+  background-color: white;
+  font-size: 15px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 370px;
+}
+
+.filter {
+  border: 1.5px solid var(--purple-10);
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 5px 18px;
+  font-family: "Courier Prime";
+  color: var(--purple-160);
+  background-color: var(--purple-10); 
 }

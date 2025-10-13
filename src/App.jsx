@@ -1,35 +1,72 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [color, setColor] = useState('var(--purple-10)')
+
+  useEffect(() => {
+    console.log('Color changed to:', color);
+  }, [color]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+  <>
+  <Navbar />
+  <hr />
+  <div className="content">
+    <div className="container">
+      <div className="directory-title">Find A Match!</div>
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search"
+          placeholder="search..."
+          aria-label="Search profiles"
+        />
+        <button
+          onClick={() => setColor('var(--purple-160)')}
+          className="filter"
+        >
+          filter
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
+  </div>
+  <div className="grid-container">
+    <Profiles />
+  </div>
+  <hr />
+  <div className="bottom-bar">Made with love by Danah Ansari</div>
+  </>
   )
 }
 
-export default App
+function Navbar() {
+  return (
+    <>
+    <nav className="nav-bar">
+      <div className="logo">NYou</div>
+      <ul className="nav-links">
+        <li>home</li>
+        <li>sign up</li>
+        <li>search</li>
+      </ul>
+    </nav>
+    </>
+  );
+}
+
+function Profiles() {
+  return (
+    <>
+      <div className="grid-item">Profile 1</div>
+      <div className="grid-item">Profile 2</div>
+      <div className="grid-item">Profile 3</div>
+      <div className="grid-item">Profile 4</div>
+      <div className="grid-item">Profile 5</div>
+      <div className="grid-item">Profile 6</div>
+    </>
+  );
+}
+
+export default App;
