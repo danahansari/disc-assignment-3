@@ -19,7 +19,7 @@ function App() {
       <div
         onClick={() => setClickColor(prev =>
           prev === 'var(--neutral-purple)' ? 'red' : 'var(--purple-10)')}
-        style={{backgroundColor: clickColor}}
+        style={{color: clickColor}}
         className="directory-title"
       >
         Find A Match!
