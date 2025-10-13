@@ -13,6 +13,7 @@
   color: var(--northwestern-purple);
   font-family: "Dela Gothic One";
   will-change: filter;
+  display: inline-block;
   transition: filter 300ms;
 }
 .logo:hover {
@@ -50,7 +51,7 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   padding: 40px;
 }
@@ -112,6 +113,5 @@
   font-size: 15px;
   padding: 5px 18px;
   font-family: "Courier Prime";
-  color: var(--purple-160);
   background-color: var(--purple-10); 
 }

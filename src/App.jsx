@@ -26,6 +26,7 @@ function App() {
         <button
           onClick={() => setColor('var(--purple-160)')}
           className="filter"
+          style={{backgroundColor: color}}
         >
           filter
         </button>
@@ -43,7 +44,6 @@ function App() {
 
 function Navbar() {
   return (
-    <>
     <nav className="nav-bar">
       <div className="logo">NYou</div>
       <ul className="nav-links">
@@ -52,7 +52,6 @@ function Navbar() {
         <li>search</li>
       </ul>
     </nav>
-    </>
   );
 }
 
