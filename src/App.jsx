@@ -18,7 +18,7 @@ function App() {
     <div className="container">
       <div
         onClick={() => setClickColor(prev =>
-          prev === 'var(--neutral-purple)' ? 'red' : 'var(--purple-10)')}
+          prev === 'var(--neutral-purple)' ? 'red' : 'var(--neutral-purple)')}
         style={{color: clickColor}}
         className="directory-title"
       >
