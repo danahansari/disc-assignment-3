@@ -24,7 +24,8 @@ function App() {
           aria-label="Search profiles"
         />
         <button
-          onClick={() => setColor('var(--purple-160)')}
+          onClick={() => setColor(prev =>
+            prev === 'var(--purple-10)' ? 'var(--save-green)' : 'var(--purple-10)')}
           className="filter"
           style={{backgroundColor: color}}
         >
