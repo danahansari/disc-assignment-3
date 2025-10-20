@@ -1,21 +1,32 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { useEffect } from 'react'
 import './App.css'
 import Navbar from './Navbar.jsx'
 import Profiles from './Profiles.jsx'
 
 function App() {
-  const [color, setColor] = useState('var(--purple-10)')
-  const [buttonClicked, setButtonClicked] = useState(false);
+  const [findColor, setFindColor] = useState('var(--purple-10)')
+  const [filterColor, setFilterColor] = useState('var(--purple-10)')
+  const [findButtonClicked, setFindButtonClicked] = useState(false);
+  const [filterButtonClicked, setFilterButtonClicked] = useState(false);
 
   useEffect(() => {
-    if (buttonClicked) {
+    if (findButtonClicked) {
       setColor((prev) =>
-        prev === "var(--purple-10)" ? "var(--save-green)" : "var(--purple-10)"
+        prev === "var(--purple-10)" ? "var(--neutral-purple)" : "var(---purple-10)"
       );
-      setButtonClicked(false); // reset so you can click again later
+      setFindButtonClicked(false);
     }
-  }, [buttonClicked]);
+  }, [findButtonClicked]);
+
+  useEffect(() => {
+    if (filterButtonClicked) {
+      setColor((prev) =>
+        prev === "var(--purple-10)" ? "var(--save-green)" : "var(---purple-10)"
+      );
+      setFilterButtonClicked(false);
+    }
+  }, [filterButtonClicked]);
 
   return (
   <>
@@ -24,8 +35,8 @@ function App() {
   <div className="content">
     <div className="container">
       <div
-        onClick={() => setButtonClicked(true)}
-        style={{color: color}}
+        onClick={() => setFindButtonClicked(true)}
+        style={{color: findColor}}
         className="directory-title"
       >
         Find A Match!
@@ -38,9 +49,9 @@ function App() {
           aria-label="Search profiles"
         />
         <button
-          onClick={() => setButtonClicked(true)}
+          onClick={() => setFilterButtonClicked(true)}
           className="filter"
-          style={{backgroundColor: color}}
+          style={{backgroundColor: filterColor}}
         >
           filter
         </button>
