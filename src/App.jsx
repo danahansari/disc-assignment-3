@@ -1,14 +1,21 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './App.css'
+import Navbar from './Navbar.jsx'
+import Profiles from './Profiles.jsx'
 
 function App() {
   const [color, setColor] = useState('var(--purple-10)')
-  const [clickColor, setClickColor] = useState('var(--neutral-purple)')
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
-    console.log('Color changed to:', color);
-  }, [color]);
+    if (buttonClicked) {
+      setColor((prev) =>
+        prev === "var(--purple-10)" ? "var(--save-green)" : "var(--purple-10)"
+      );
+      setButtonClicked(false); // reset so you can click again later
+    }
+  }, [buttonClicked]);
 
   return (
   <>
@@ -17,9 +24,8 @@ function App() {
   <div className="content">
     <div className="container">
       <div
-        onClick={() => setClickColor(prev =>
-          prev === 'var(--neutral-purple)' ? 'red' : 'var(--neutral-purple)')}
-        style={{color: clickColor}}
+        onClick={() => setButtonClicked(true)}
+        style={{color: color}}
         className="directory-title"
       >
         Find A Match!
@@ -32,8 +38,7 @@ function App() {
           aria-label="Search profiles"
         />
         <button
-          onClick={() => setColor(prev =>
-            prev === 'var(--purple-10)' ? 'var(--save-green)' : 'var(--purple-10)')}
+          onClick={() => setButtonClicked(true)}
           className="filter"
           style={{backgroundColor: color}}
         >
@@ -48,32 +53,6 @@ function App() {
   <hr />
   <div className="bottom-bar">Made with love by Danah Ansari</div>
   </>
-  )
-}
-
-function Navbar() {
-  return (
-    <nav className="nav-bar">
-      <div className="logo">NYou</div>
-      <ul className="nav-links">
-        <li>home</li>
-        <li>sign up</li>
-        <li>search</li>
-      </ul>
-    </nav>
-  );
-}
-
-function Profiles() {
-  return (
-    <>
-      <div className="grid-item">Profile 1</div>
-      <div className="grid-item">Profile 2</div>
-      <div className="grid-item">Profile 3</div>
-      <div className="grid-item">Profile 4</div>
-      <div className="grid-item">Profile 5</div>
-      <div className="grid-item">Profile 6</div>
-    </>
   );
 }
 
