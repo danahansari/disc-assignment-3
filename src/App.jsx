@@ -5,15 +5,15 @@ import Navbar from './Navbar.jsx'
 import Profiles from './Profiles.jsx'
 
 function App() {
-  const [findColor, setFindColor] = useState('var(--purple-10)')
+  const [findColor, setFindColor] = useState('var(--neutral-purple)')
   const [filterColor, setFilterColor] = useState('var(--purple-10)')
   const [findButtonClicked, setFindButtonClicked] = useState(false);
   const [filterButtonClicked, setFilterButtonClicked] = useState(false);
-
+ 
   useEffect(() => {
     if (findButtonClicked) {
-      setColor((prev) =>
-        prev === "var(--purple-10)" ? "var(--neutral-purple)" : "var(---purple-10)"
+      setFindColor((prev) =>
+        prev === "var(--neutral-purple)" ? "var(--northwestern-purple)" : "var(--neutral-purple)"
       );
       setFindButtonClicked(false);
     }
@@ -21,8 +21,8 @@ function App() {
 
   useEffect(() => {
     if (filterButtonClicked) {
-      setColor((prev) =>
-        prev === "var(--purple-10)" ? "var(--save-green)" : "var(---purple-10)"
+      setFilterColor((prev) =>
+        prev === "var(--purple-10)" ? "var(--save-green)" : "var(--purple-10)"
       );
       setFilterButtonClicked(false);
     }
