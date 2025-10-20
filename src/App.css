@@ -7,6 +7,14 @@
   --neutral-purple: #5D5A88;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .logo {
   font-size: 40px;
   font-weight: 200;
