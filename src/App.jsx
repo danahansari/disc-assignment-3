@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { use, useState } from 'react'
+import { useEffect } from 'react'
 import './App.css'
+import Navbar from './Navbar.jsx'
+import Profiles from './Profiles.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [findColor, setFindColor] = useState('var(--neutral-purple)')
+  const [filterColor, setFilterColor] = useState('var(--purple-10)')
+  const [findButtonClicked, setFindButtonClicked] = useState(false);
+  const [filterButtonClicked, setFilterButtonClicked] = useState(false);
+ 
+  useEffect(() => {
+    if (findButtonClicked) {
+      setFindColor((prev) =>
+        prev === "var(--neutral-purple)" ? "var(--northwestern-purple)" : "var(--neutral-purple)"
+      );
+      setFindButtonClicked(false);
+    }
+  }, [findButtonClicked]);
+
+  useEffect(() => {
+    if (filterButtonClicked) {
+      setFilterColor((prev) =>
+        prev === "var(--purple-10)" ? "var(--save-green)" : "var(--purple-10)"
+      );
+      setFilterButtonClicked(false);
+    }
+  }, [filterButtonClicked]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  <>
+  <Navbar />
+  <hr />
+  <div className="content">
+    <div className="container">
+      <div
+        onClick={() => setFindButtonClicked(true)}
+        style={{color: findColor}}
+        className="directory-title"
+      >
+        Find A Match!
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search"
+          placeholder="search..."
+          aria-label="Search profiles"
+        />
+        <button
+          onClick={() => setFilterButtonClicked(true)}
+          className="filter"
+          style={{backgroundColor: filterColor}}
+        >
+          filter
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  </div>
+  <div className="grid-container">
+    <Profiles />
+  </div>
+  <hr />
+  <div className="bottom-bar">Made with love by Danah Ansari</div>
+  </>
+  );
 }
 
-export default App
+export default App;
